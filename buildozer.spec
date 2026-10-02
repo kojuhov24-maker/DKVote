@@ -9,7 +9,7 @@ source.include_exts = py,png,jpg,kv,atlas
 version = 1.0.0
 
 # Необходимые зависимости
-requirements = python3,kivy,pyjnius,requests,urllib3,charset-normalizer,idna
+requirements = python3,kivy==2.2.1,pyjnius
 
 # Разрешения Android
 android.permissions = INTERNET, ACCESS_NETWORK_STATE

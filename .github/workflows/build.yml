@@ -18,43 +18,6 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Set up Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '17При первой сборке на GitHub Actions сбой обычно происходит на одном из двух шагов:
-
-1. **Непринятые лицензии Android SDK**: сборка останавливается в ожидании подтверждения лицензионных соглашений Google.
-2. **Конфликт версий Cython и Kivy**: если Cython обновился до версии 3.x, сборка падает с ошибками компиляции C-кода.
-
-Отредактируйте файл рабочего процесса прямо на сайте GitHub:
-
-1. Откройте страницу репозитория и перейдите по пути:
-   `.github` → `workflows` → `build.yml`.
-2. Нажмите на значок карандаша (**Edit this file**) в правом верхнем углу.
-3. Полностью замените содержимое файла следующим сценарием:
-
-```yaml
-name: Build Android APK
-
-on:
-  push:
-    branches: [ main, master ]
-  workflow_dispatch:
-
-jobs:
-  build:
-    runs-on: ubuntu-22.04
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
-
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:
@@ -64,9 +27,7 @@ jobs:
       - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y git zip unzip autoconf libtool pkg-config \
-            zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake \
-            libffi-dev libssl-dev lld
+          sudo apt-get install -y git zip unzip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev lld
 
       - name: Install Python tools
         run: |

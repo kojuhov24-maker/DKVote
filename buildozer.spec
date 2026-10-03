@@ -2,6 +2,7 @@
 title = DK Vote
 package.name = dkvote
 package.domain = org.culture.vote
+p4a.branch = release-2024.01.21
 
 source.dir = .
 source.include_exts = py,png,jpg,kv,atlas

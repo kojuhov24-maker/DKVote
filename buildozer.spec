@@ -24,5 +24,8 @@ android.archs = arm64-v8a, armeabi-v7a
 android.minapi = 24
 android.api = 33
 
+# (str) Android NDK version to use
+android.ndk = 25b
+
 # Настройки сборки
 android.accept_sdk_license = True
